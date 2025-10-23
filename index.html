@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftSite - Custom Web Design & Development</title>
+    <title>NerdSpace | Cesar's Tech Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7c3aed;
-            --accent: #06b6d4;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --gray: #64748b;
-            --light-gray: #e2e8f0;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --accent: #8b5cf6;
+            --bg: #0f0f23;
+            --bg-light: rgba(35, 35, 60, 0.8);
+            --bg-lighter: rgba(50, 50, 80, 0.6);
+            --text: #f1f5f9;
+            --text-light: #cbd5e1;
             --success: #10b981;
             --warning: #f59e0b;
             --error: #ef4444;
-            --radius: 8px;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
+            --patch: #8bc34a;
+            --neo: #9c27b0;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --glass-shadow: rgba(0, 0, 0, 0.2);
         }
 
         * {
@@ -36,187 +35,150 @@
 
         html {
             scroll-behavior: smooth;
-            font-size: 16px;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #050517 100%);
+            color: var(--text);
+            min-height: 100vh;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
             overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-        }
-
-        h3 {
-            font-size: 1.8rem;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--gray);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            outline: none;
-            font-size: 1rem;
-            gap: 0.5rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover, .btn-primary:focus {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        .btn-secondary:hover, .btn-secondary:focus {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-accent {
-            background-color: var(--accent);
-            color: white;
-        }
-
-        .btn-accent:hover, .btn-accent:focus {
-            background-color: #0891b2;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
+            font-family: 'Inter', sans-serif;
             position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
         }
 
-        .section-title h2::after {
+        body::before {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Header */
-        header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            z-index: -2;
         }
 
-        header.scrolled {
-            padding: 0.5rem 0;
-            box-shadow: var(--shadow);
+        .code-font {
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page Structure */
+        .page {
+            min-height: 100vh;
+            padding-top: 80px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            font-weight: 600;
+            font-size: 3rem;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        /* Glassmorphism Base Styles */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px var(--glass-shadow);
+        }
+
+        .glass-light {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 15, 35, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
 
         .header-container {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 1rem 1.5rem;
+            align-items: center;
+            padding: 20px 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 12px;
+            color: var(--primary);
+            text-decoration: none;
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .logo-icon {
+            font-size: 28px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            list-style: none;
+            gap: 30px;
         }
 
         .nav-links a {
+            color: var(--text);
+            text-decoration: none;
             font-weight: 500;
+            transition: color 0.3s ease;
             position: relative;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
         .nav-links a::after {
@@ -226,497 +188,702 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
+            background: var(--primary);
+            transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after, .nav-links a:focus::after {
+        .nav-links a:hover::after {
             width: 100%;
         }
 
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding-top: 80px; /* Added to prevent header overlap */
-        }
-
-        .hero-content {
-            max-width: 600px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            margin-bottom: 1.5rem;
-            font-size: 3.5rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: var(--gray);
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
+        .nav-links a.active {
             color: var(--primary);
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--gray);
+        .nav-links a.active::after {
+            width: 100%;
         }
 
-        .hero-visual {
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: relative;
+            padding: 8px;
+            margin-right: -8px; /* Compensate for padding */
+        }
+
+        .mobile-dropdown {
+            display: none;
             position: absolute;
+            top: 100%;
             right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 90%;
-            height: 90%;
-            z-index: 1;
+            width: 200px;
+            background-color: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1001;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .floating-card {
-            position: absolute;
-            background:whitesmoke;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            padding: 10rem;
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            max-width: 220px;
-            transition: all 0.8s ease-in-out;
-            opacity: 0;
-            transform: translateY(20px) scale(0.9);
-            z-index: 2;
+        .mobile-dropdown.active {
+            display: block;
         }
 
-        .floating-card.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            animation: float 6s ease-in-out infinite;
+        .mobile-dropdown ul {
+            list-style: none;
         }
 
-        .floating-card.featured {
-            z-index: 3;
-            transform: scale(1.1);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        .mobile-dropdown li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Updated positions for cards - more spread out */
-        .floating-card:nth-child(1) {
-            top: 10%;
-            right: 5%;
+        .mobile-dropdown li:last-child {
+            border-bottom: none;
         }
 
-        .floating-card:nth-child(2) {
-            top: 25%;
-            right: 25%;
-        }
-
-        .floating-card:nth-child(3) {
-            top: 50%;
-            right: 10%;
-        }
-
-        .floating-card:nth-child(4) {
-            top: 65%;
-            right: 30%;
-        }
-
-        .card-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: black;
-            flex-shrink: 0;
-            font-size: 1.2rem;
-        }
-
-        .card-icon.primary {
-            background-color: var(--primary);
-        }
-
-        .card-icon.accent {
-            background-color: var(--accent);
-        }
-
-        .card-icon.secondary {
-            background-color: var(--secondary);
-        }
-
-        .card-icon.success {
-            background-color: var(--success);
-        }
-
-        .floating-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-            color: var(--dark);
-        }
-
-        .floating-card p {
-            font-size: 0.85rem;
-            margin-bottom: 0;
-            color: var(--gray);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-15px) scale(1.02); }
-        }
-
-        /* Services Section */
-        .services {
-            background-color: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
+        .mobile-dropdown a {
+            display: block;
+            padding: 15px 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: var(--transition);
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .mobile-dropdown a:hover {
+            background-color: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+        }
+
+        /* UPDATED: Hero Section with Video Background - Following Cesar Reyes Portfolio Format */
+        .hero-section {
             position: relative;
             overflow: hidden;
-            z-index: 1;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px; /* Accounts for fixed header */
         }
 
-        .service-card::before {
-            content: '';
+        .hero-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 0;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            transition: var(--transition);
+            height: 100%;
+            object-fit: cover;
             z-index: -1;
         }
 
-        .service-card:hover::before {
-            height: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            color: white;
-        }
-
-        .service-card:hover .service-icon,
-        .service-card:hover h3,
-        .service-card:hover p {
-            color: white;
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .service-card h3 {
-            margin-bottom: 1rem;
-            transition: var(--transition);
-        }
-
-        .service-card p {
-            transition: var(--transition);
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            background-color: #f8fafc;
-        }
-
-        .portfolio-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            background: white;
-            border: 1px solid var(--light-gray);
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .portfolio-item {
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            position: relative;
-            background: white;
-            transition: var(--transition);
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .portfolio-img {
-            height: 200px;
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            background-color: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray);
+            height: 100%;
+            background: rgba(15, 23, 42, 0.6); /* Dark blue overlay for better text contrast */
+            z-index: -1;
         }
 
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-
-        .portfolio-content h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
-        }
-
-        .tag {
-            padding: 0.25rem 0.75rem;
-            background-color: var(--light-gray);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: white;
-        }
-
-        .testimonial-slider {
+        .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            text-align: center;
             position: relative;
-            overflow: hidden;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease;
         }
 
-        .testimonial-track {
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-buttons {
             display: flex;
-            transition: transform 0.5s ease;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
         }
 
-        .testimonial-slide {
-            min-width: 100%;
-            padding: 2rem;
+        .hero-button {
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .hero-button.primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .hero-button.secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Models Overview */
+        .models-overview {
+            padding: 80px 0;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .model-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+            background: rgba(45, 45, 75, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
-        .testimonial-avatar {
-            width: 80px;
-            height: 80px;
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .model-header {
+            padding: 25px 25px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .model-icon {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            margin-bottom: 1.5rem;
-            background-color: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: var(--gray);
+            font-size: 24px;
+            color: white;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        .testimonial-content {
-            max-width: 600px;
-            margin-bottom: 1.5rem;
-            font-style: italic;
+        .patch .model-icon {
+            background: linear-gradient(135deg, var(--patch), #306824);
         }
 
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--dark);
+        .neo .model-icon {
+            background: linear-gradient(135deg, var(--neo), #6a1b9a);
         }
 
-        .testimonial-role {
-            color: var(--gray);
+        .future .model-icon {
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+        }
+
+        .model-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+
+        .model-info p {
+            color: var(--text-light);
             font-size: 0.9rem;
         }
 
-        .slider-nav {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
+        .model-body {
+            padding: 20px 25px;
+            flex-grow: 1;
         }
 
-        .slider-dot {
+        .model-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .model-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .model-features li i {
+            color: var(--success);
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .model-footer {
+            padding: 15px 25px 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .model-link {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .patch .model-link {
+            background: rgba(139, 195, 74, 0.2);
+            color: var(--patch);
+            border: 1px solid rgba(139, 195, 74, 0.4);
+        }
+
+        .patch .model-link:hover {
+            background: var(--patch);
+            color: white;
+        }
+
+        .neo .model-link {
+            background: rgba(156, 39, 176, 0.2);
+            color: var(--neo);
+            border: 1px solid rgba(156, 39, 176, 0.4);
+        }
+
+        .neo .model-link:hover {
+            background: var(--neo);
+            color: white;
+        }
+
+        .future .model-link {
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--accent);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+
+        .future .model-link:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* UPDATED: Individual Model Sections - Demo on top, content below */
+        .model-section {
+            padding: 100px 0;
+        }
+
+        /* Remove the old grid layout */
+        .model-detail,
+        .model-detail.reverse {
+            display: block; /* Change from grid to block layout */
+        }
+
+        .model-detail.reverse .model-content,
+        .model-detail.reverse .model-visual {
+            order: initial; /* Reset any ordering */
+        }
+
+        /* UPDATED: Demo section - wider and on top */
+        .model-demo-section {
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .model-demo-full {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* UPDATED: Content section - full width below demo */
+        .model-content-full {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 20px;
+            background: rgba(45, 45, 75, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .model-content-full h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .model-content-full h2 .accent {
+            background: linear-gradient(135deg, var(--patch), #306824);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .neo-section .model-content-full h2 .accent {
+            background: linear-gradient(135deg, var(--neo), #6a1b9a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .model-content-full p {
+            margin-bottom: 25px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .model-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 18px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .patch-section .feature-icon {
+            background: rgba(139, 195, 74, 0.2);
+            color: var(--patch);
+        }
+
+        .neo-section .feature-icon {
+            background: rgba(156, 39, 176, 0.2);
+            color: var(--neo);
+        }
+
+        /* UPDATED: Terminal Demo Styles - Larger and wider */
+        .terminal-demo-full {
+            background: rgba(20, 25, 35, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            width: 100%;
+        }
+
+        .terminal-header {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .terminal-button {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background-color: var(--light-gray);
-            cursor: pointer;
-            transition: var(--transition);
         }
 
-        .slider-dot.active {
-            background-color: var(--primary);
+        .terminal-button.close {
+            background: #ff5f57;
         }
 
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            color: white;
+        .terminal-button.minimize {
+            background: #ffbd2e;
         }
 
-        .contact .section-title h2,
-        .contact .section-title p {
-            color: white;
+        .terminal-button.maximize {
+            background: #28ca42;
         }
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .terminal-title {
+            flex: 1;
+            text-align: center;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
         }
 
-        .contact-info {
+        .terminal-body {
+            padding: 20px;
+            height: 350px; /* Increased height for larger demo */
+            overflow-y: auto;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1rem; /* Slightly larger font */
+        }
+
+        .terminal-output {
+            margin-bottom: 10px;
+        }
+
+        .command-line {
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .prompt {
+            color: var(--patch);
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .neo-prompt {
+            color: #00ff41;
+        }
+
+        .command-input {
+            background: transparent;
+            border: none;
+            color: var(--text-light);
+            font-size: 1rem;
+            flex: 1;
+            outline: none;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        .output-line {
+            margin: 6px 0;
+            line-height: 1.4;
+        }
+
+        .output-line.system {
+            color: #4fc3f7;
+        }
+
+        .output-line.error {
+            color: #ef4444;
+        }
+
+        .output-line.success {
+            color: #10b981;
+        }
+
+        .output-line.matrix {
+            color: #00ff41;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 6px;
+            height: 14px;
+            background: var(--patch);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+
+        .neo-cursor {
+            background: #00ff41;
+        }
+
+        /* Future Models Section */
+        .future-models {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .future-card {
+            padding: 40px 30px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(45, 45, 75, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .future-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .future-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .future-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .future-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* Contact Page */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            margin-bottom: 30px;
         }
 
         .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            flex-shrink: 0;
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-right: 15px;
+            margin-top: 5px;
         }
 
-        .contact-details h3 {
-            margin-bottom: 0.5rem;
+        .contact-item h4 {
+            font-size: 1.3rem;
         }
 
-        .contact-form {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
+        .contact-item p {
+            font-size: 1.1rem;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--dark);
+            margin-bottom: 20px;
         }
 
         .form-control {
             width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius);
+            padding: 14px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
             font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: rgba(45, 45, 75, 0.7);
+            color: var(--text);
+            font-weight: 500;
             font-size: 1rem;
-            transition: var(--transition);
         }
 
         .form-control:focus {
+            border-color: var(--accent);
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        select.form-control {
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1em;
         }
 
         textarea.form-control {
@@ -724,529 +891,387 @@
             resize: vertical;
         }
 
-        /* Form status messages */
-        .form-success-message {
-            display: none;
-            background: #10b981;
-            color: white;
-            padding: 15px;
-            border-radius: var(--radius);
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .form-error-message {
-            display: none;
-            background: #ef4444;
-            color: white;
-            padding: 15px;
-            border-radius: var(--radius);
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .form-loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
         /* Footer */
         footer {
-            background-color: #0f172a;
-            color: white;
-            padding: 4rem 0 2rem;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
         }
 
-        .footer-container {
+        .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-col h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.25rem;
-            position: relative;
+        .footer-column {
+            padding: 30px;
+            border-radius: 16px;
+            background: rgba(45, 45, 75, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background-color: var(--accent);
+        .footer-column h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
         }
 
         .footer-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
-            color: #94a3b8;
-            transition: var(--transition);
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
+            color: var(--primary);
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .social-link {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(99, 102, 241, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .social-link:hover {
             background: var(--primary);
+            color: white;
             transform: translateY(-3px);
         }
 
         .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid #334155;
             text-align: center;
-            color: #94a3b8;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
             font-size: 0.9rem;
         }
 
-        /* Notification */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            background: var(--primary);
-            color: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .notification.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Accessibility */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Focus styles for better accessibility */
-        button:focus, a:focus, .form-control:focus {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.8rem;
+        /* Responsive Design - UPDATED for better mobile spacing */
+        @media (max-width: 1024px) {
+            .model-demo-full,
+            .model-content-full {
+                max-width: 900px;
             }
-            
-            h2 {
-                font-size: 2.2rem;
+        }
+
+        @media (max-width: 768px) {
+            /* UPDATED: Improved container padding for mobile */
+            .container {
+                padding: 0 25px;
             }
-            
-            .hero-visual {
+
+            .nav-links {
                 display: none;
             }
-            
-            .hero-content {
-                max-width: 100%;
-                text-align: center;
+
+            .mobile-menu {
+                display: block;
+                padding: 8px;
+                margin-right: -8px; /* Compensate for padding */
             }
-            
-            .hero-actions {
-                justify-content: center;
+
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
-            
-            .hero-stats {
-                justify-content: center;
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .model-features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .future-grid {
+                grid-template-columns: 1fr;
             }
             
             .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Mobile Navigation - Updated from Swift 4 */
-        @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                right: 1.5rem;
-                width: 220px;
-                background: white;
                 flex-direction: column;
-                align-items: stretch;
-                padding: 1rem 0;
-                box-shadow: var(--shadow-lg);
-                border-radius: var(--radius);
-                transform: translateY(-10px);
-                opacity: 0;
-                visibility: hidden;
-                transition: var(--transition);
-                z-index: 999;
             }
             
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
+            /* UPDATED: Better spacing for mobile dropdown */
+            .mobile-dropdown {
+                right: 25px; /* Align with container padding */
+                width: calc(100vw - 50px); /* Full width minus container padding */
+                max-width: 300px;
             }
             
-            .nav-links li {
-                margin: 0;
+            /* UPDATED: Adjust terminal height for mobile */
+            .terminal-body {
+                height: 300px;
+                padding: 15px;
             }
             
-            .nav-links a {
-                display: block;
-                padding: 0.75rem 1.5rem;
-                font-weight: 500;
-                transition: var(--transition);
+            /* UPDATED: Adjust content padding for mobile */
+            .model-content-full {
+                padding: 30px 25px;
             }
             
-            .nav-links a:hover {
-                background-color: var(--light);
-                color: var(--primary);
+            /* Mobile-specific contrast improvements */
+            .model-card,
+            .model-content-full,
+            .future-card,
+            .footer-column {
+                background: rgba(50, 50, 80, 0.85) !important;
             }
             
-            .nav-actions {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-col h3::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            /* Center social icons on mobile */
-            .social-links {
-                justify-content: center;
+            .terminal-demo-full {
+                background: rgba(25, 30, 40, 0.9) !important;
             }
         }
 
         @media (max-width: 576px) {
-            .section {
-                padding: 3rem 0;
+            /* UPDATED: Further improved spacing for small mobile devices */
+            .container {
+                padding: 0 20px;
+            }
+
+            .header-container {
+                padding: 15px 0;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .mobile-menu {
+                margin-right: -5px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
             }
             
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
+            .section-title {
+                font-size: 2.2rem;
             }
             
-            .hero-actions .btn {
-                width: 100%;
+            /* UPDATED: Adjust mobile dropdown for smaller screens */
+            .mobile-dropdown {
+                right: 20px;
+                width: calc(100vw - 40px);
             }
             
-            .portfolio-grid {
-                grid-template-columns: 1fr;
+            /* UPDATED: Further adjust terminal for small screens */
+            .terminal-body {
+                height: 250px;
+                font-size: 0.9rem;
+            }
+            
+            .model-content-full h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            /* UPDATED: Extra small device adjustments */
+            .container {
+                padding: 0 18px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-icon {
+                font-size: 24px;
+            }
+
+            .mobile-menu {
+                font-size: 1.3rem;
+                padding: 6px;
+                margin-right: -6px;
+            }
+
+            .mobile-dropdown {
+                right: 18px;
+                width: calc(100vw - 36px);
+            }
+            
+            .terminal-body {
+                height: 220px;
+                padding: 12px;
+            }
+            
+            .model-content-full {
+                padding: 25px 20px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header id="header">
+    <header>
         <div class="container header-container">
-            <a href="#" class="logo">
-                SwiftSite
+            <a class="logo" id="home-link">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div>NerdSpace.CR</div>
             </a>
-            
-            <nav class="nav">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <div class="nav-actions">
-                <a href="#contact" class="btn btn-primary">Get Quote</a>
-            </div>
-            
-            <button class="mobile-toggle" aria-label="Toggle navigation">
+            <ul class="nav-links">
+                <li><a class="nav-link active" data-page="home">Home</a></li>
+                <li><a class="nav-link" data-page="patch">PATCH</a></li>
+                <li><a class="nav-link" data-page="neo">NEO</a></li>
+                <li><a class="nav-link" data-page="future">Future</a></li>
+                <li><a class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
-            </button>
+                <div class="mobile-dropdown">
+                    <ul>
+                        <li><a data-page="home">Home</a></li>
+                        <li><a data-page="patch">PATCH</a></li>
+                        <li><a data-page="neo">NEO</a></li>
+                        <li><a data-page="future">Future</a></li>
+                        <li><a data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- UPDATED: Hero Section with Video Background - Following Cesar Reyes Portfolio Format -->
+    <section id="hero" class="hero-section">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="tech.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1>Custom Web Design & Development for Local Businesses</h1>
-                <p>We create stunning, responsive websites that drive results. Based in Houston, TX, we help businesses establish a powerful online presence.</p>
-                
-                <div class="hero-actions">
-                    <a href="#portfolio" class="btn btn-primary">View Our Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get Started</a>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-value">50+</span>
-                        <span class="stat-label">Projects Completed</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">99%</span>
-                        <span class="stat-label">Client Satisfaction</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">24/7</span>
-                        <span class="stat-label">Online Support</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hero-visual">
-                <!-- Updated floating cards with the requested content -->
-                <div class="floating-card">
-                    <div class="card-icon primary">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div>
-                        <h4>Website Building</h4>
-                        <p>Custom Solutions</p>
-                    </div>
-                </div>
-                
-                <div class="floating-card">
-                    <div class="card-icon accent">
-                        <i class="fas fa-pencil-ruler"></i>
-                    </div>
-                    <div>
-                        <h4>Integral Design</h4>
-                        <p>Complete Branding</p>
-                    </div>
-                </div>
-                
-                <div class="floating-card">
-                    <div class="card-icon secondary">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div>
-                        <h4>Database & Security</h4>
-                        <p>Protected Data</p>
-                    </div>
-                </div>
-                
-                <div class="floating-card">
-                    <div class="card-icon success">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div>
-                        <h4>Maintenance</h4>
-                        <p>Ongoing Support</p>
-                    </div>
+                <h1 id="hero-title">Welcome to NerdSpace</h1>
+                <p id="hero-description">A platform showcasing cutting-edge AI tools, frameworks, and implementations. Explore the future of personal AI assistants and development tools.</p>
+                <div class="hero-buttons">
+                    <a class="hero-button primary" id="hero-button">Explore Models</a>
+                    <a class="hero-button secondary" href="https://cr-about-me.vercel.app" target="_blank">About Me</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="section services" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>We offer a comprehensive range of web services to help your business thrive online.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Web Design</h3>
-                    <p>Custom, visually appealing designs that reflect your brand and engage your audience.</p>
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <div class="container section">
+            <!-- Models Overview -->
+            <div class="models-overview">
+                <div class="section-title">
+                    <h2>AI Models & Tools</h2>
+                    <p>Discover the collection of AI implementations, each designed for specific use cases and optimized for performance.</p>
                 </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Robust, scalable websites built with the latest technologies and best practices.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3>E-Commerce</h3>
-                    <p>Complete online store solutions to sell your products and grow your business.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>SEO Optimization</h3>
-                    <p>Improve your search engine rankings and increase organic traffic to your website.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Website Maintenance</h3>
-                    <p>Ongoing support, updates, and security to keep your website running smoothly.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Hosting Solutions</h3>
-                    <p>Reliable, secure hosting with 99.9% uptime guarantee on Google Cloud infrastructure.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Portfolio Section -->
-    <section class="section portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Portfolio</h2>
-                <p>Check out some of our recent projects and see how we've helped businesses like yours.</p>
-            </div>
-            
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web-design">Web Design</button>
-                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
-                <button class="filter-btn" data-filter="branding">Branding</button>
-            </div>
-            
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-category="web-design">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Houston Restaurant</h3>
-                        <p>A modern website for a local restaurant with online reservations and menu display.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Web Design</span>
-                            <span class="tag">Responsive</span>
+                <div class="models-grid">
+                    <div class="model-card patch">
+                        <div class="model-header">
+                            <div class="model-icon">
+                                <i class="fas fa-feather"></i>
+                            </div>
+                            <div class="model-info">
+                                <h3>PATCH AI Console</h3>
+                                <p>Lightweight & Efficient</p>
+                            </div>
+                        </div>
+                        <div class="model-body">
+                            <ul class="model-features">
+                                <li><i class="fas fa-check"></i> Minimal resource consumption</li>
+                                <li><i class="fas fa-check"></i> Fast response times</li>
+                                <li><i class="fas fa-check"></i> Cross-platform compatibility</li>
+                                <li><i class="fas fa-check"></i> Easy setup and deployment</li>
+                            </ul>
+                            <p>Perfect for everyday AI tasks and quick interactions without heavy system requirements.</p>
+                        </div>
+                        <div class="model-footer">
+                            <a class="model-link" data-page="patch">Explore PATCH</a>
                         </div>
                     </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="ecommerce">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Local Boutique</h3>
-                        <p>E-commerce solution for a fashion boutique with integrated payment processing.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">E-Commerce</span>
-                            <span class="tag">Payment Gateway</span>
+
+                    <div class="model-card neo">
+                        <div class="model-header">
+                            <div class="model-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="model-info">
+                                <h3>NEO AI Console</h3>
+                                <p>Advanced & Sophisticated</p>
+                            </div>
+                        </div>
+                        <div class="model-body">
+                            <ul class="model-features">
+                                <li><i class="fas fa-check"></i> Multi-model orchestration</li>
+                                <li><i class="fas fa-check"></i> Persistent memory system</li>
+                                <li><i class="fas fa-check"></i> Context-aware routing</li>
+                                <li><i class="fas fa-check"></i> Continuous learning</li>
+                            </ul>
+                            <p>Advanced AI console with sophisticated capabilities for complex tasks and personalized interactions.</p>
+                        </div>
+                        <div class="model-footer">
+                            <a class="model-link" data-page="neo">Explore NEO</a>
                         </div>
                     </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="branding">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Tech Startup</h3>
-                        <p>Complete branding and website for a Houston-based technology startup.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Branding</span>
-                            <span class="tag">Web Design</span>
+
+                    <div class="model-card future">
+                        <div class="model-header">
+                            <div class="model-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="model-info">
+                                <h3>Future Models</h3>
+                                <p>Coming Soon</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="web-design">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Medical Practice</h3>
-                        <p>Professional website for a healthcare provider with patient portal integration.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Web Design</span>
-                            <span class="tag">Healthcare</span>
+                        <div class="model-body">
+                            <ul class="model-features">
+                                <li><i class="fas fa-star"></i> Specialized domain models</li>
+                                <li><i class="fas fa-star"></i> Enhanced reasoning systems</li>
+                                <li><i class="fas fa-star"></i> Multi-modal capabilities</li>
+                                <li><i class="fas fa-star"></i> Enterprise solutions</li>
+                            </ul>
+                            <p>Ongoing development of next-generation AI tools and implementations for various applications.</p>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="ecommerce">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Home Services</h3>
-                        <p>Service-based website with booking system and customer management.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">E-Commerce</span>
-                            <span class="tag">Booking System</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="portfolio-item" data-category="branding">
-                    <div class="portfolio-img">
-                        <i class="fas fa-image fa-3x"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Non-Profit Organization</h3>
-                        <p>Website redesign and branding for a local charitable organization.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Branding</span>
-                            <span class="tag">Non-Profit</span>
+                        <div class="model-footer">
+                            <a class="model-link" data-page="future">View Roadmap</a>
                         </div>
                     </div>
                 </div>
@@ -1254,102 +1279,247 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>See what our clients have to say about working with SwiftSite.</p>
-            </div>
-            
-            <div class="testimonial-slider">
-                <div class="testimonial-track">
-                    <div class="testimonial-slide">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
+    <!-- UPDATED: PATCH Section - Demo on top, content below -->
+    <section id="patch" class="page">
+        <div class="container section">
+            <div class="model-detail">
+                <!-- Demo Section - Now on top -->
+                <div class="model-demo-section">
+                    <div class="model-demo-full">
+                        <div class="terminal-demo-full">
+                            <div class="terminal-header">
+                                <div class="terminal-buttons">
+                                    <div class="terminal-button close"></div>
+                                    <div class="terminal-button minimize"></div>
+                                    <div class="terminal-button maximize"></div>
+                                </div>
+                                <div class="terminal-title">patch-ai-console — bash — 80x24</div>
+                            </div>
+                            <div class="terminal-body" id="patchTerminalBody">
+                                <div class="terminal-output">
+                                    <div class="output-line system">Patch AI Console v1.0.3</div>
+                                    <div class="output-line system">Initializing systems...</div>
+                                    <div class="output-line system">Memory module loaded</div>
+                                    <div class="output-line system">Model registry active</div>
+                                    <div class="output-line success">System ready. Type 'help' for available commands.</div>
+                                </div>
+                                <div class="command-line">
+                                    <span class="prompt">user@patch:~$</span>
+                                    <input type="text" class="command-input" id="patchCommandInput" autofocus>
+                                    <span class="cursor"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="testimonial-content">
-                            <p>"SwiftSite transformed our online presence completely. Our new website has increased our leads by 40% and the design perfectly represents our brand. The team was professional, responsive, and delivered on time."</p>
+                    </div>
+                </div>
+                
+                <!-- Content Section - Now below demo -->
+                <div class="model-content-full">
+                    <h2><span class="accent">PATCH</span> AI Console</h2>
+                    <p>A lightweight, off-lineefficient AI console designed for developers and power users who need fast, responsive AI interactions without heavy resource requirements.</p>
+                    
+                    <div class="model-features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Lightning Fast</h4>
+                                <p>Optimized for minimal resource consumption with rapid response times.</p>
+                            </div>
                         </div>
-                        <div class="testimonial-author">
-                            <h4>Sarah Johnson</h4>
-                            <p class="testimonial-role">Owner, Houston Restaurant</p>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Cross-Platform</h4>
+                                <p>Runs seamlessly on Windows, macOS, and Linux environments.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Privacy Focused</h4>
+                                <p>All processing happens locally - your data never leaves your machine.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Developer Friendly</h4>
+                                <p>Simple setup with clear documentation and easy customization.</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="testimonial-slide">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"The e-commerce website SwiftSite built for our boutique has exceeded our expectations. Sales have increased significantly, and the user experience is seamless. Their ongoing support has been invaluable."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <h4>Michael Torres</h4>
-                            <p class="testimonial-role">Manager, Local Boutique</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="testimonial-content">
-                            <p>"As a tech startup, we needed a website that reflected our innovation and professionalism. SwiftSite delivered exactly that. The site is fast, modern, and has helped us attract investors and customers alike."</p>
-                        </div>
-                        <div class="testimonial-author">
-                            <h4>Jennifer Lee</h4>
-                            <p class="testimonial-role">CEO, Tech Startup</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="slider-nav">
-                    <div class="slider-dot active" data-slide="0"></div>
-                    <div class="slider-dot" data-slide="1"></div>
-                    <div class="slider-dot" data-slide="2"></div>
+                    <a href="https://patch-ai-nerdspace-cr.vercel.app" target="_blank" class="cta-button">Visit PATCH Website</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Ready to start your project? Contact us today for a free consultation and quote.</p>
+    <!-- UPDATED: NEO Section - Demo on top, content below -->
+    <section id="neo" class="page">
+        <div class="container section">
+            <div class="model-detail">
+                <!-- Demo Section - Now on top -->
+                <div class="model-demo-section">
+                    <div class="model-demo-full">
+                        <div class="terminal-demo-full">
+                            <div class="terminal-header">
+                                <div class="terminal-buttons">
+                                    <div class="terminal-button close"></div>
+                                    <div class="terminal-button minimize"></div>
+                                    <div class="terminal-button maximize"></div>
+                                </div>
+                                <div class="terminal-title">neo-ai-console — bash — 80x24</div>
+                            </div>
+                            <div class="terminal-body" id="neoTerminalBody">
+                                <div class="terminal-output">
+                                    <div class="output-line matrix">NEO AI Console v2.1.0</div>
+                                    <div class="output-line matrix">Initializing advanced systems...</div>
+                                    <div class="output-line system">Loading persistent memory module</div>
+                                    <div class="output-line system">Model orchestration system active</div>
+                                    <div class="output-line system">Context-aware routing initialized</div>
+                                    <div class="output-line system">Reflection and learning systems online</div>
+                                    <div class="output-line success">System ready. Type 'help' for available commands.</div>
+                                </div>
+                                <div class="command-line">
+                                    <span class="prompt neo-prompt">user@neo:~$</span>
+                                    <input type="text" class="command-input" id="neoCommandInput" autofocus>
+                                    <span class="cursor neo-cursor"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Section - Now below demo -->
+                <div class="model-content-full">
+                    <h2><span class="accent">NEO</span> AI Console</h2>
+                    <p>An advanced personal AI console with persistent memory, multi-model orchestration, and sophisticated reflection systems for complex AI interactions.</p>
+                    
+                    <div class="model-features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Multi-Model Orchestration</h4>
+                                <p>Intelligently routes tasks between specialized AI models based on context.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-memory"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Persistent Memory</h4>
+                                <p>Maintains comprehensive session memory with categorized storage.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Context-Aware Routing</h4>
+                                <p>Automatically selects optimal AI model based on task requirements.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-sync"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Continuous Learning</h4>
+                                <p>Implements reflection mechanisms to improve responses over time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://neo-ai-nerdspace-cr.vercel.app" target="_blank" class="cta-button">Visit NEO Website</a>
+                </div>
             </div>
-            
+        </div>
+    </section>
+
+    <!-- Future Models Section -->
+    <section id="future" class="page">
+        <div class="container section">
+            <div class="section-title">
+                <h2>Future Projects & Roadmap</h2>
+                <p>Explore the upcoming AI tools and implementations currently in development.</p>
+            </div>
+
+            <div class="future-grid">
+                <div class="future-card">
+                    <div class="future-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics Pro</h3>
+                    <p>Advanced AI-powered analytics platform with predictive modeling and data visualization capabilities.</p>
+                    <span class="coming-soon">Q4 2025</span>
+                </div>
+
+                <div class="future-card">
+                    <div class="future-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Polyglot AI</h3>
+                    <p>Multi-language AI assistant with real-time translation and cultural context understanding.</p>
+                    <span class="coming-soon">Q1 2026</span>
+                </div>
+
+                <div class="future-card">
+                    <div class="future-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Vision AI Studio</h3>
+                    <p>Computer vision platform for image and video analysis with creative AI capabilities.</p>
+                    <span class="coming-soon">Q2 2026</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="container section">
+            <h2 class="section-title">Contact</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Our Location</h3>
-                            <p>Houston, Texas</p>
-                        </div>
-                    </div>
+                    <h3>Get In Touch</h3>
+                    <p>Have questions about our AI models or interested in collaboration? Reach out!</p>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="contact-details">
-                            <h3>Email Us</h3>
-                            <p>swiftsiteonline@gmail.com</p>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@aitechhub.com</p>
                         </div>
                     </div>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="contact-details">
-                            <h3>Online Support</h3>
-                            <p>24/7 Email & Chat Support</p>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Based in the United States</p>
                         </div>
                     </div>
                     
@@ -1357,54 +1527,34 @@
                         <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <div class="contact-details">
-                            <h3>Business Hours</h3>
-                            <p>Mon - Fri: 9am - 6pm CST</p>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>We typically respond within 24 hours</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <!-- Updated form with Formspree action and service dropdown -->
-                    <form id="contactForm" action="https://formspree.io/f/mwprnyaq" method="POST">
+                    <form id="contactForm">
                         <div class="form-group">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="email" class="form-label">Your Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required aria-required="true">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="service" class="form-label">Service Interested In</label>
-                            <select id="service" name="service" class="form-control" required aria-required="true">
-                                <option value="" disabled selected>Select a service...</option>
-                                <option value="Web Design">Web Design</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="E-Commerce">E-Commerce</option>
-                                <option value="SEO Optimization">SEO Optimization</option>
-                                <option value="Website Maintenance">Website Maintenance</option>
-                                <option value="Hosting Solutions">Hosting Solutions</option>
-                                <option value="Other">Other (please specify in message)</option>
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Inquiry Type</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="general">General Question</option>
+                                <option value="feedback">Feedback</option>
                             </select>
                         </div>
-                        
                         <div class="form-group">
-                            <label for="message" class="form-label">Your Message</label>
-                            <textarea id="message" name="message" class="form-control" required aria-required="true"></textarea>
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-                        
-                        <!-- Form status messages -->
-                        <div class="form-success-message" id="formSuccess">
-                            <i class="fas fa-check-circle"></i> Thank you! Your message has been sent.
-                        </div>
-                        <div class="form-error-message" id="formError">
-                            <i class="fas fa-exclamation-circle"></i> Sorry, there was an error sending your message. Please try again.
-                        </div>
+                        <button type="submit" class="cta-button">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1414,352 +1564,464 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>SwiftSite</h3>
-                    <p>Custom web design and development services for businesses in Houston, TX and beyond.</p>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Technology Hub: Digital projects & other cool findings!</h3>
+                    <p>A platform showcasing my digital projects like AI models, game coding & web developments, case studies, blogs, code testing, audio engineering and other cool digital insights. My cool nerd space. This site is under development.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
-                
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
+
+                <div class="footer-column">
+                    <h3>My AI Models</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a data-page="patch">PATCH AI Console</a></li>
+                        <li><a data-page="neo">NEO AI Console</a></li>
+                        <li><a data-page="future">Future Projects</a></li>
+                        <li><a href="#">Audio Engineering - Coming Soon!</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-col">
-                    <h3>Services</h3>
+
+                <div class="footer-column">
+                    <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">E-Commerce</a></li>
-                        <li><a href="#">SEO Optimization</a></li>
-                        <li><a href="#">Website Maintenance</a></li>
+                        <li><a href="#">GitHub Repository</a></li>
+                        <li><a href="#">Videos & Demonstrations</a></li>
+                        <li><a href="#">Case Studies - Coming soon!</a></li>
+                        <li><a href="#">Blog - Coming soon!</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-col">
-                    <h3>Legal</h3>
+
+                <div class="footer-column">
+                    <h3>Let's Connect!</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a data-page="contact">Contact</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="https://cr-about-me.vercel.app" target="_blank">About Me</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2025 SwiftSite. All rights reserved.</p>
+                <p>&copy; 2025 NerdSpace.CR, an AI Tech Hub. Created by SwiftSite.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Notification Element -->
-    <div class="notification" id="notification">
-        Message sent successfully!
-    </div>
-
     <script>
-        // Initialize GSAP animations
-        gsap.registerPlugin(ScrollTrigger);
-        
+        // Hero content for each page
+        const heroContent = {
+            home: {
+                title: "Welcome to NerdSpace!",
+                description: "A tech hub platform showcasing cutting-edge AI tools, frameworks, and implementations. Explore the future of personal AI assistants and development tools.",
+                buttonText: "Explore Models",
+                buttonPage: "home"
+            },
+            patch: {
+                title: "PATCH",
+                description: "A lightweight, efficient AI console designed for developers and power users who need fast, responsive AI interactions without heavy resource requirements.",
+                buttonText: "Visit PATCH Website",
+                buttonPage: "patch"
+            },
+            neo: {
+                title: "NEO",
+                description: "An advanced personal AI console with persistent memory, multi-model orchestration, and sophisticated reflection systems for complex AI interactions.",
+                buttonText: "Visit NEO Website",
+                buttonPage: "neo"
+            },
+            future: {
+                title: "Future Projects & Roadmap",
+                description: "Explore the upcoming AI tools and implementations currently in development. Discover what's next in AI technology.",
+                buttonText: "View Roadmap",
+                buttonPage: "future"
+            },
+            contact: {
+                title: "Get In Touch",
+                description: "Have questions about our AI models or interested in collaboration? Reach out to us and let's build the future of AI together.",
+                buttonText: "Send Message",
+                buttonPage: "About Me"
+            }
+        };
+
+        // Page Navigation
         document.addEventListener('DOMContentLoaded', function() {
-            // Mobile navigation toggle - Updated from Swift 4
-            const mobileToggle = document.querySelector('.mobile-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            const navLinksItems = document.querySelectorAll('.nav-links a');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-dropdown a, .footer-links a[data-page], .model-link[data-page]');
+            const pages = document.querySelectorAll('.page');
+            const heroSection = document.getElementById('hero');
+            const heroTitle = document.getElementById('hero-title');
+            const heroDescription = document.getElementById('hero-description');
+            const heroButton = document.getElementById('hero-button');
+            const homeLink = document.getElementById('home-link');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileDropdown = document.querySelector('.mobile-dropdown');
             
-            // Toggle mobile menu
-            mobileToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                // Toggle between hamburger and close icon
-                const icon = this.querySelector('i');
-                if (navLinks.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                }
+            // Show home page by default
+            showPage('home');
+            updateHeroContent('home');
+            
+            // Add click event to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    navigateToPage(pageId);
+                });
             });
             
-            // Close mobile menu when a link is clicked
-            navLinksItems.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    mobileToggle.querySelector('i').classList.remove('fa-times');
-                    mobileToggle.querySelector('i').classList.add('fa-bars');
-                });
+            // Home logo link
+            homeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                navigateToPage('home');
+            });
+            
+            // Hero button
+            heroButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const currentPage = document.querySelector('.nav-link.active').getAttribute('data-page');
+                const targetPage = heroContent[currentPage].buttonPage;
+                navigateToPage(targetPage);
+            });
+            
+            // Mobile menu toggle
+            mobileMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileDropdown.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function() {
+                mobileDropdown.classList.remove('active');
+            });
+            
+            // Form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message. We will contact you soon.');
+                this.reset();
             });
             
             // Header scroll effect
-            const header = document.getElementById('header');
-            
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
                 } else {
-                    header.classList.remove('scrolled');
+                    header.style.boxShadow = 'none';
                 }
             });
             
-            // Portfolio filtering
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    portfolioItems.forEach(item => {
-                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
+            function navigateToPage(pageId) {
+                // Update active nav link
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                document.querySelectorAll(`[data-page="${pageId}"]`).forEach(link => {
+                    link.classList.add('active');
                 });
-            });
-            
-            // Testimonial slider
-            const sliderTrack = document.querySelector('.testimonial-track');
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const dots = document.querySelectorAll('.slider-dot');
-            let currentSlide = 0;
-            
-            function goToSlide(index) {
-                sliderTrack.style.transform = `translateX(-${index * 100}%)`;
                 
-                // Update dots
-                dots.forEach(dot => dot.classList.remove('active'));
-                dots[index].classList.add('active');
+                // Show selected page and update hero
+                showPage(pageId);
+                updateHeroContent(pageId);
                 
-                currentSlide = index;
+                // Close mobile menu if open
+                mobileDropdown.classList.remove('active');
             }
             
-            dots.forEach(dot => {
-                dot.addEventListener('click', function() {
-                    const slideIndex = parseInt(this.getAttribute('data-slide'));
-                    goToSlide(slideIndex);
+            function showPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
                 });
-            });
-            
-            // Auto slide
-            setInterval(() => {
-                currentSlide = (currentSlide + 1) % slides.length;
-                goToSlide(currentSlide);
-            }, 5000);
-            
-            // Enhanced Floating cards system
-            const floatingCards = document.querySelectorAll('.floating-card');
-            let currentFeaturedCard = 0;
-            
-            // Initialize: show all cards with a featured one
-            function initializeCards() {
-                floatingCards.forEach((card, index) => {
-                    // Show all cards immediately
-                    card.classList.add('active');
-                    
-                    // Set the first card as featured initially
-                    if (index === 0) {
-                        card.classList.add('featured');
-                    }
-                });
+                
+                // If not home page, show the page content
+                if (pageId !== 'home') {
+                    document.getElementById(pageId).classList.add('active');
+                }
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
             }
             
-            // Function to rotate featured card
-            function rotateFeaturedCard() {
-                // Remove featured class from current card
-                floatingCards[currentFeaturedCard].classList.remove('featured');
-                
-                // Move to next card
-                currentFeaturedCard = (currentFeaturedCard + 1) % floatingCards.length;
-                
-                // Add featured class to new card
-                floatingCards[currentFeaturedCard].classList.add('featured');
-            }
-            
-            // Initialize cards on page load
-            initializeCards();
-            
-            // Start rotation every 4 seconds (longer duration)
-            const cardRotationInterval = setInterval(rotateFeaturedCard, 4000);
-            
-            // Form submission with Formspree
-            const contactForm = document.getElementById('contactForm');
-            
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                this.classList.add('form-loading');
-                
-                try {
-                    // Submit form to Formspree
-                    const response = await fetch(this.action, {
-                        method: this.method,
-                        body: new FormData(this),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
+            function updateHeroContent(pageId) {
+                const content = heroContent[pageId];
+                if (content) {
+                    // Add loading animation
+                    heroSection.style.opacity = '0.7';
                     
-                    if (response.ok) {
-                        // Show success message
-                        document.getElementById('formSuccess').style.display = 'block';
-                        document.getElementById('formError').style.display = 'none';
-                        
-                        // Reset form
-                        this.reset();
-                        
-                        // Also show the notification
-                        const notification = document.getElementById('notification');
-                        notification.textContent = 'Message sent successfully!';
-                        notification.classList.add('show');
-                        
-                        // Hide notification after 3 seconds
-                        setTimeout(() => {
-                            notification.classList.remove('show');
-                        }, 3000);
-                    } else {
-                        throw new Error('Form submission failed');
-                    }
-                } catch (error) {
-                    // Show error message
-                    document.getElementById('formError').style.display = 'block';
-                    document.getElementById('formSuccess').style.display = 'none';
-                    
-                    // Also show the notification with error
-                    const notification = document.getElementById('notification');
-                    notification.textContent = 'Error sending message. Please try again.';
-                    notification.classList.add('show');
-                    
-                    // Hide notification after 3 seconds
                     setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 3000);
-                } finally {
-                    // Remove loading state
-                    this.classList.remove('form-loading');
+                        heroTitle.textContent = content.title;
+                        heroDescription.textContent = content.description;
+                        heroButton.textContent = content.buttonText;
+                        
+                        // Remove loading animation
+                        heroSection.style.opacity = '1';
+                    }, 300);
+                }
+            }
+            
+            // PATCH Terminal Demo
+            const patchTerminalBody = document.getElementById('patchTerminalBody');
+            const patchCommandInput = document.getElementById('patchCommandInput');
+            
+            // Command history and responses for PATCH
+            const patchCommands = {
+                'help': `Available commands:
+  help - Show this help message
+  about - Information about Patch AI
+  models - List available AI models
+  memory - Show memory system info
+  clear - Clear the terminal
+  exit - Exit the console (in desktop version)`,
+                
+                'about': `Patch AI Console v1.0.3
+A lightweight, efficient AI console for developers.
+  
+Features:
+  - Multi-model AI support (TinyLlama, SmollM2, DeepSeek)
+  - Session memory with categorization
+  - Cross-platform compatibility
+  - Minimal resource consumption
+  - Privacy-focused local processing`,
+                
+                'models': `Available AI Models:
+  
+1. TinyLlama (default)
+   - Fast and lightweight
+   - Perfect for everyday tasks
+   - Low resource requirements
+  
+2. SmollM2
+   - Balanced performance
+   - Good for general purpose use
+   - Moderate resource usage
+  
+3. DeepSeek
+   - Advanced reasoning capabilities
+   - Best for complex tasks
+   - Higher resource requirements`,
+                
+                'memory': `Memory System:
+  
+Patch maintains conversation context with categorized memory:
+  
+  [MOOD] - Emotional state and preferences
+  [GOAL] - Current objectives and tasks
+  [NOTE] - Important information and facts
+  [FEEDBACK] - System performance notes
+  [REFLECTION] - Learning and improvement insights
+  
+Type 'memory view' to see current session memory.`,
+                
+                'memory view': `Current Session Memory:
+  
+[GOAL] Demonstrate Patch AI Console capabilities
+[NOTE] User is interacting with web demo version
+[REFLECTION] System responding well to command inputs`,
+                
+                'clear': '', // Special case - handled separately
+                
+                'exit': 'This is a web demo. In the desktop version, this would exit the console.',
+                
+                '': '' // Handle empty input
+            };
+            
+            // Default response for unknown commands
+            const patchDefaultResponse = "Command not recognized. Type 'help' for available commands.";
+            
+            // Function to add output to PATCH terminal
+            function addPatchOutput(text, className = '') {
+                const outputLine = document.createElement('div');
+                outputLine.className = `output-line ${className}`;
+                outputLine.textContent = text;
+                patchTerminalBody.insertBefore(outputLine, patchTerminalBody.lastElementChild);
+                patchTerminalBody.scrollTop = patchTerminalBody.scrollHeight;
+            }
+            
+            // Function to process PATCH commands
+            function processPatchCommand(command) {
+                // Show the command that was entered
+                addPatchOutput(`user@patch:~$ ${command}`);
+                
+                // Process special commands
+                if (command === 'clear') {
+                    // Clear terminal except the last command line
+                    const outputLines = patchTerminalBody.querySelectorAll('.output-line');
+                    outputLines.forEach(line => line.remove());
+                    return;
+                }
+                
+                // Get response or use default
+                const response = patchCommands[command.toLowerCase()] || patchDefaultResponse;
+                
+                // Add response to terminal
+                if (response) {
+                    // Split response by lines and add each separately
+                    response.split('\n').forEach(line => {
+                        addPatchOutput(line);
+                    });
+                }
+            }
+            
+            // Handle PATCH command input
+            patchCommandInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    const command = patchCommandInput.value.trim();
+                    if (command) {
+                        processPatchCommand(command);
+                    }
+                    patchCommandInput.value = '';
                 }
             });
             
-            // GSAP Animations
-            gsap.from('.hero-content h1', {
-                duration: 1,
-                y: 50,
-                opacity: 0,
-                ease: 'power3.out'
+            // Focus on PATCH input when clicking anywhere in terminal
+            patchTerminalBody.addEventListener('click', function() {
+                patchCommandInput.focus();
+            });
+
+            // NEO Terminal Demo
+            const neoTerminalBody = document.getElementById('neoTerminalBody');
+            const neoCommandInput = document.getElementById('neoCommandInput');
+            
+            // Available commands and responses for NEO
+            const neoCommands = {
+                'help': `Available commands:
+  help - Show this help message
+  about - Information about NEO AI
+  models - List available AI models
+  memory - Show memory system info
+  status - Display system status
+  reflect - Show reflection insights
+  clear - Clear the terminal
+  exit - Exit the console (in desktop version)`,
+                
+                'about': `NEO AI Console v2.1.0
+An advanced personal AI console with sophisticated capabilities.
+  
+Advanced Features:
+  - Multi-model AI orchestration (smollm2, deepseek-r1)
+  - Persistent memory with categorization
+  - Context-aware model routing
+  - Continuous learning and reflection systems
+  - Cross-platform synchronization
+  - Matrix-themed interface`,
+                
+                'models': `AI Model Orchestration:
+  
+1. SmollM2 (Conversational Specialist)
+   - Optimized for natural dialogue
+   - Emotional intelligence capabilities
+   - Engaging interaction patterns
+  
+2. DeepSeek-R1 (Analytical Specialist)
+   - Advanced reasoning capabilities
+   - Technical problem-solving
+   - Complex analysis tasks
+  
+3. Dynamic Model Selection
+   - Automatic routing based on task type
+   - Context-aware model switching
+   - Performance optimization`,
+                
+                'memory': `Advanced Memory System:
+  
+NEO maintains comprehensive context with categorized memory:
+  
+  [MOOD] - Emotional state tracking and preference learning
+  [GOAL] - Current objectives, tasks, and progress tracking
+  [NOTE] - Important information, facts, and user preferences
+  [FEEDBACK] - System performance metrics and improvement areas
+  [REFLECTION] - Learning insights and adaptive behavior patterns
+  
+Type 'memory view' to see current session memory.`,
+                
+                'memory view': `Current Session Memory:
+  
+[GOAL] Demonstrate NEO AI Console advanced capabilities
+[NOTE] User is interacting with web demo version
+[FEEDBACK] System responding effectively to command inputs
+[REFLECTION] Web interface provides good simulation of desktop experience`,
+                
+                'status': `System Status:
+  
+  Memory Module: ONLINE
+  Model Orchestration: ACTIVE
+  Context Routing: OPERATIONAL
+  Reflection Systems: ENGAGED
+  Learning Protocols: ACTIVE
+  
+All systems functioning at optimal capacity.`,
+                
+                'reflect': `Reflection Insights:
+  
+Current session analysis indicates:
+  - User is exploring system capabilities
+  - Command patterns suggest technical proficiency
+  - Interaction style favors direct commands
+  - System adapting to user preferences
+  
+Learning systems actively updating interaction models.`,
+                
+                'clear': '', // Special case - handled separately
+                
+                'exit': 'This is a web demo. In the desktop version, this would exit the console.',
+                
+                '': '' // Handle empty input
+            };
+            
+            // Default response for unknown commands
+            const neoDefaultResponse = "Command not recognized. Type 'help' for available commands.";
+            
+            // Function to add output to NEO terminal
+            function addNeoOutput(text, className = '') {
+                const outputLine = document.createElement('div');
+                outputLine.className = `output-line ${className}`;
+                outputLine.textContent = text;
+                neoTerminalBody.insertBefore(outputLine, neoTerminalBody.lastElementChild);
+                neoTerminalBody.scrollTop = neoTerminalBody.scrollHeight;
+            }
+            
+            // Function to process NEO commands
+            function processNeoCommand(command) {
+                // Show the command that was entered
+                addNeoOutput(`user@neo:~$ ${command}`);
+                
+                // Process special commands
+                if (command === 'clear') {
+                    // Clear terminal except the last command line
+                    const outputLines = neoTerminalBody.querySelectorAll('.output-line');
+                    outputLines.forEach(line => line.remove());
+                    return;
+                }
+                
+                // Get response or use default
+                const response = neoCommands[command.toLowerCase()] || neoDefaultResponse;
+                
+                // Add response to terminal
+                if (response) {
+                    // Split response by lines and add each separately
+                    response.split('\n').forEach(line => {
+                        addNeoOutput(line);
+                    });
+                }
+            }
+            
+            // Handle NEO command input
+            neoCommandInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    const command = neoCommandInput.value.trim();
+                    if (command) {
+                        processNeoCommand(command);
+                    }
+                    neoCommandInput.value = '';
+                }
             });
             
-            gsap.from('.hero-content p', {
-                duration: 1,
-                y: 30,
-                opacity: 0,
-                delay: 0.3,
-                ease: 'power3.out'
-            });
-            
-            gsap.from('.hero-actions', {
-                duration: 1,
-                y: 30,
-                opacity: 0,
-                delay: 0.6,
-                ease: 'power3.out'
-            });
-            
-            gsap.from('.hero-stats', {
-                duration: 1,
-                y: 30,
-                opacity: 0,
-                delay: 0.9,
-                ease: 'power3.out'
-            });
-            
-            // Animate service cards on scroll
-            gsap.utils.toArray('.service-card').forEach(card => {
-                gsap.from(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 80%',
-                        end: 'bottom 20%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    duration: 0.8,
-                    y: 50,
-                    opacity: 0,
-                    ease: 'power3.out'
-                });
-            });
-            
-            // Animate portfolio items on scroll
-            gsap.utils.toArray('.portfolio-item').forEach(item => {
-                gsap.from(item, {
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 80%',
-                        end: 'bottom 20%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    duration: 0.8,
-                    y: 50,
-                    opacity: 0,
-                    ease: 'power3.out'
-                });
-            });
-            
-            // FASTER CONTACT ANIMATIONS (0.4s instead of 0.8s/1s)
-            // Animate contact form - faster (0.4s)
-            gsap.from('.contact-form', {
-                scrollTrigger: {
-                    trigger: '.contact-form',
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                duration: 0.4, // Changed from 1s to 0.4s
-                x: 50,
-                opacity: 0,
-                ease: 'power3.out'
-            });
-            
-            // Animate contact info - faster (0.4s)
-            gsap.from('.contact-info .contact-item', {
-                scrollTrigger: {
-                    trigger: '.contact-info',
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                },
-                duration: 0.4, // Changed from 0.8s to 0.4s
-                x: -50,
-                opacity: 0,
-                stagger: 0.1, // Also reduced stagger for even faster appearance
-                ease: 'power3.out'
+            // Focus on NEO input when clicking anywhere in terminal
+            neoTerminalBody.addEventListener('click', function() {
+                neoCommandInput.focus();
             });
         });
     </script>
