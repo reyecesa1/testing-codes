@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cold2Close | AI-Powered Cold Calling Solution</title>
-    <!-- Vapi AI Widget Script -->
-    <script
-      src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
-      async
-      type="text/javascript"
-    ></script>
     <style>
         /* Global Styles */
         :root {
@@ -287,6 +281,97 @@
         .video-text {
             margin-top: 120px;
             font-size: 1.2rem;
+        }
+        
+        /* Demo Section */
+        .demo-section {
+            background-color: var(--primary-white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .demo-container {
+            background-color: var(--light-gray);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            color: var(--primary-black);
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .demo-container h2 {
+            margin-bottom: 10px;
+            color: var(--primary-black);
+            font-size: 2.5rem;
+        }
+        
+        .demo-container p {
+            color: var(--medium-gray);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .demo-highlights {
+            background: var(--primary-white);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 4px solid var(--accent-orange);
+        }
+        
+        .demo-highlights h3 {
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+        }
+        
+        .demo-highlights ul {
+            text-align: left;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .demo-highlights li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .demo-highlights li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+        
+        .demo-btn {
+            padding: 20px 40px;
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 20px 0;
+        }
+        
+        .demo-btn:hover {
+            background: var(--accent-warm);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-note {
+            color: var(--medium-gray);
+            margin-top: 20px;
+            font-size: 14px;
         }
         
         /* Contact Section */
@@ -754,58 +839,6 @@
             color: #adb5bd;
             font-size: 0.9rem;
         }
-
-        /* Vapi AI Widget Styles - Compact version */
-        vapi-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        /* Custom widget controls */
-        .widget-controls {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 10000;
-            display: flex;
-            gap: 10px;
-        }
-
-        .widget-toggle {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--accent-orange);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-            transition: all 0.3s ease;
-            font-size: 24px;
-            border: none;
-        }
-
-        .widget-toggle:hover {
-            transform: scale(1.1);
-            background-color: var(--accent-warm);
-        }
-
-        /* Button container for pricing section */
-        .button-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
         
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -874,6 +907,19 @@
                 padding: 130px 0 60px;
             }
             
+            .demo-container {
+                padding: 40px 20px;
+            }
+            
+            .demo-container h2 {
+                font-size: 2rem;
+            }
+            
+            .demo-btn {
+                padding: 16px 30px;
+                font-size: 18px;
+            }
+            
             /* Mobile adjustments for logo and hamburger */
             .header-container {
                 padding: 15px 15px; /* Added more padding on mobile */
@@ -882,23 +928,15 @@
             .logo-container {
                 margin-left: 10px; /* Added margin for mobile */
             }
-            
-            /* Adjust Vapi widget position on mobile */
-            vapi-widget {
-                bottom: 10px;
-                right: 10px;
-            }
-            
-            .widget-controls {
-                bottom: 10px;
-                right: 10px;
-            }
-            
-            .widget-toggle {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
+        }
+
+        /* Button container for pricing section */
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -914,6 +952,7 @@
                 <ul>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#demo">Book Demo</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#contact" class="btn">Contact</a></li>
@@ -930,12 +969,40 @@
             <p>Our AI-powered solution transforms your cold calling process. We create custom workflows for any business to generate qualified leads and increase conversions.</p>
             <div class="hero-btns">
                 <a href="#contact" class="btn">Contact Us</a>
-                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                <a href="#demo" class="btn btn-secondary">Book Demo</a>
             </div>
             <div class="hero-image">
                 <div class="video-placeholder">
                     <div class="video-text">Watch Demo: Cold2Close AI in Action</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="demo-container">
+                <h2>See Our AI in Action</h2>
+                <p>Experience firsthand how our AI handles cold calls</p>
+                
+                <div class="demo-highlights">
+                    <h3>What you'll experience:</h3>
+                    <ul>
+                        <li>Natural conversation with our AI</li>
+                        <li>Objection handling demonstration</li>
+                        <li>Lead qualification process</li>
+                        <li>Real-time response to your questions</li>
+                    </ul>
+                </div>
+                
+                <!-- Book Demo Button -->
+                <button onclick="window.open('https://vapi.ai/?demo=true&shareKey=5764d42b-c0ab-4e6c-98e8-a50b7d0f62af&assistantId=b6154320-6583-40c4-84fd-aaa5499d2207', '_blank')" 
+                       class="demo-btn">
+                    Book Demo
+                </button>
+                
+                <p class="demo-note">No installation required • 2-minute demo</p>
             </div>
         </div>
     </section>
@@ -1179,7 +1246,7 @@
                 <p><strong>Need a custom solution? We build tailored workflows for any business type.</strong></p>
                 <div class="button-container">
                     <a href="#contact" class="btn btn-secondary">Request Custom Quote</a>
-                    <a href="#contact" class="btn btn-light">Book Demo</a>
+                    <a href="#demo" class="btn btn-light">Book Demo</a>
                 </div>
             </div>
         </div>
@@ -1262,6 +1329,7 @@
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#demo">Book Demo</a></li>
                         <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -1288,21 +1356,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Custom Widget Controls -->
-    <div class="widget-controls">
-        <button class="widget-toggle" id="widgetToggle">💬</button>
-    </div>
-
-    <!-- Vapi AI Widget - Compact Version -->
-    <vapi-widget 
-      assistant-id="b6154320-6583-40c4-84fd-aaa5499d2207" 
-      public-key="5764d42b-c0ab-4e6c-98e8-a50b7d0f62af"
-      size="compact"
-      position="bottom-right"
-      border-radius="small"
-      id="vapiWidget">
-    </vapi-widget>
 
     <script>
         // Mobile menu toggle
@@ -1364,35 +1417,6 @@
             if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target) && navMenu.classList.contains('show')) {
                 navMenu.classList.remove('show');
             }
-        });
-
-        // Vapi Widget Controls
-        const widget = document.getElementById('vapiWidget');
-        const toggleButton = document.getElementById('widgetToggle');
-        let isWidgetVisible = false;
-
-        // Toggle widget visibility
-        toggleButton.addEventListener('click', function() {
-            if (isWidgetVisible) {
-                widget.style.transform = 'translateX(400px)';
-                widget.style.opacity = '0';
-                toggleButton.textContent = '💬';
-                isWidgetVisible = false;
-            } else {
-                widget.style.transform = 'translateX(0)';
-                widget.style.opacity = '1';
-                toggleButton.textContent = '✕';
-                isWidgetVisible = true;
-            }
-        });
-
-        // Initialize widget controls after page loads
-        window.addEventListener('load', function() {
-            // Set initial widget state to hidden
-            widget.style.transform = 'translateX(400px)';
-            widget.style.opacity = '0';
-            toggleButton.textContent = '💬';
-            isWidgetVisible = false;
         });
     </script>
 </body>
